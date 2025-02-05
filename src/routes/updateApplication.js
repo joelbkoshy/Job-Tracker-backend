@@ -1,9 +1,10 @@
 import express from 'express'
 import Application from '../models/Application.js'
+import fetchUser from '../jwtValidation/tokenValidation.js'
 
 const router = express.Router()
 
-router.put('/applications/:id', async (req, res) => {
+router.put('/applications/:id', fetchUser, async (req, res) => {
 
     const _id = req.params.id
     console.log(_id)

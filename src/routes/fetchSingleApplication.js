@@ -1,9 +1,9 @@
 import express from 'express'
 import Application from '../models/Application.js'
-
+import fetchUser from '../jwtValidation/tokenValidation.js'
 const router = express.Router()
 
-router.get('/applications/:id', async (req, res) => {
+router.get('/applications/:id', fetchUser,async (req, res) => {
 
     const id = req.params.id
     try {

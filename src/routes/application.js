@@ -1,13 +1,14 @@
 import express from 'express'
 import Application from '../models/Application.js'
+import fetchUser from '../jwtValidation/tokenValidation.js'
 
 const router = express.Router()
 
-router.post('/applications', async (req, res) => {
+router.post('/applications', fetchUser, async (req, res) => {
 
-    const { company, position, notes,user } = req.body
+    const { company, position, notes, dateApplied ,status,user } = req.body
 
-    await Application.insertMany({ company, position, notes, user })
+    await Application.insertMany({ company, position, notes,status, dateApplied, user })
 
     return res.status(200).json({
         status: "success",

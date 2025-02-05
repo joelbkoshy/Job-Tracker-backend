@@ -12,8 +12,7 @@ import fetchApplications from './src/routes/fetchApplications.js'
 import singleApplication from './src/routes/fetchSingleApplication.js'
 import updateApplication from './src/routes/updateApplication.js'
 import deleteApplication from './src/routes/deleteJobApplication.js'
-
-
+import fetchUserAPI from './src/routes/fetchUser.js';
 
 
 dotenv.config();
@@ -37,6 +36,7 @@ app.use('/api', fetchApplications)
 app.use('/api', singleApplication)
 app.use('/api', updateApplication)
 app.use('/api', deleteApplication)
+app.use('/api', fetchUserAPI)
 
 
 // // Sample Routes
